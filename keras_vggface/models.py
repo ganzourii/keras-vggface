@@ -254,7 +254,7 @@ def RESNET50(include_top=True, weights='vggface',
     x = resnet_identity_block(x, 3, [512, 512, 2048], stage=5, block=2)
     x = resnet_identity_block(x, 3, [512, 512, 2048], stage=5, block=3)
 
-    x = AveragePooling2D((7, 7), name='avg_pool')(x)
+    x = AveragePooling2D((2, 2), name='avg_pool')(x)
 
     if include_top:
         x = Flatten()(x)
