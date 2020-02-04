@@ -250,10 +250,6 @@ def RESNET50(include_top=True, weights='vggface',
     x = resnet_identity_block(x, 3, [256, 256, 1024], stage=4, block=5)
     x = resnet_identity_block(x, 3, [256, 256, 1024], stage=4, block=6)
 
-    x = resnet_conv_block(x, 3, [512, 512, 2048], stage=5, block=1)
-    x = resnet_identity_block(x, 3, [512, 512, 2048], stage=5, block=2)
-    x = resnet_identity_block(x, 3, [512, 512, 2048], stage=5, block=3)
-
     x = AveragePooling2D((2, 2), name='avg_pool')(x)
 
     if include_top:
